@@ -1,4 +1,4 @@
-package sliding_log_limiter
+package limiter
 
 import "time"
 
@@ -19,7 +19,7 @@ func NewSlidingLogLimiter(windowSize time.Duration, limit int) *SlidingLogLimite
 }
 
 // allow 判断是否允许通过请求，返回值是bool类型
-func (l *SlidingLogLimiter) allow() bool {
+func (l *SlidingLogLimiter) Allow() bool {
 	now := time.Now()
 	deadline := now.Add(-l.windowSize).UnixNano()
 

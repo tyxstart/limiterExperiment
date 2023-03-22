@@ -1,4 +1,4 @@
-package token_bucket_limiter
+package limiter
 
 import (
 	"sync"
@@ -25,7 +25,7 @@ func NewTokenBucketLimiter(rate time.Duration, capacity int) *TokenBucketLimiter
 
 // allow 判断是否允许通过请求，返回值是bool类型
 
-func (l *TokenBucketLimiter) allow() bool {
+func (l *TokenBucketLimiter) Allow() bool {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 

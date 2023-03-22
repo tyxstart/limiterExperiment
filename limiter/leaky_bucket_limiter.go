@@ -1,4 +1,4 @@
-package leaky_bucket_limiter
+package limiter
 
 import (
 	"sync"
@@ -24,7 +24,7 @@ func NewLeakyBucketLimiter(rate time.Duration, capacity int) *LeakyBucketLimiter
 }
 
 // allow 判断是否允许通过请求，返回值是bool类型
-func (l *LeakyBucketLimiter) allow() bool {
+func (l *LeakyBucketLimiter) Allow() bool {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 

@@ -1,4 +1,4 @@
-package sliding_window_limiter
+package limiter
 
 import (
 	"sync"
@@ -25,7 +25,7 @@ func NewSlidingWindowLimiter(windowSize time.Duration, limit int) *SlidingWindow
 }
 
 // allow 判断是否允许通过请求，返回值是bool类型
-func (l *SlidingWindowLimiter) allow() bool {
+func (l *SlidingWindowLimiter) Allow() bool {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 

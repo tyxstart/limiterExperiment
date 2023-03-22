@@ -1,4 +1,4 @@
-package fixed_window_limiter
+package limiter
 
 import (
 	"sync"
